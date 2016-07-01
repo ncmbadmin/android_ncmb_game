@@ -70,7 +70,7 @@ public class RankingActivity extends AppCompatActivity {
                         // 処理
                         String name = o.getString("name");
                         Integer score = o.getInt("score");
-                        adapter.add(name + " : " + score.toString());
+                        adapter.add(name + " さん : " + score.toString() + " (point)");
                     }
 
                     lv.setAdapter(adapter);
