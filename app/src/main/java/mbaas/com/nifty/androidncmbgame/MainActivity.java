@@ -25,7 +25,8 @@ import com.nifty.cloud.mb.core.NCMBException;
 import com.nifty.cloud.mb.core.NCMBObject;
 
 public class MainActivity extends AppCompatActivity {
-    final int COUNT_TIME = 5;
+    //カウントタイム設定
+    final int COUNT_TIME = 10;
     final Handler myHandler = new Handler();
     Timer myTimer = new Timer();
     TextView tv;
@@ -48,7 +49,9 @@ public class MainActivity extends AppCompatActivity {
         NCMB.initialize(this.getApplicationContext(), "YOUR_APPLICATION_KEY", "YOUR_CLIENT_KEY");
     }
 
-    /******** START ボタンを処理する実装 ***********/
+    /********
+     * START ボタンを処理する実装
+     ***********/
     public void doStartBtn(View view) {
         //１秒１回タイマーを実行
         myTimer.schedule(new TimerTask() {
@@ -59,7 +62,9 @@ public class MainActivity extends AppCompatActivity {
         }, 0, 1000);
     }
 
-    /******** HIT ボタンを処理する実装 ***********/
+    /********
+     * HIT ボタンを処理する実装
+     ***********/
     public void doHit(View view) {
         if ((countTimer > 0) && (countTimer <= COUNT_TIME)) {
             score++;
@@ -67,10 +72,51 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /******** RANKINGを見るボタンを処理する実装 ***********/
+    /********
+     * RANKINGを見るボタンを処理する実装
+     ***********/
     public void btnRankingAction(View view) {
-      Intent intent = new Intent(getApplicationContext(), RankingActivity.class);
+        Intent intent = new Intent(getApplicationContext(), RankingActivity.class);
         startActivity(intent);
+    }
+
+    /********
+     * mBaaSデータを保存
+     ***********/
+    public void saveScore(String name, int score) {
+
+        // **********【問題１】名前とスコアを保存しよう！**********
+
+        //保存するインスタンスを作成
+        NCMBObject obj = new NCMBObject("GameScore");
+
+        //値を設定
+        obj.put("name", name);
+        obj.put("score", score);
+
+        //保存を実施
+        obj.saveInBackground(new DoneCallback() {
+            @Override
+            public void done(NCMBException e) {
+                if (e != null) {
+                    //保存が失敗した場合の処理
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle("登録失敗")
+                            .setMessage("エラー :" + e.getMessage())
+                            .setPositiveButton("OK", null)
+                            .show();
+                } else {
+                    //保存が成功した場合の処理
+                    new AlertDialog.Builder(MainActivity.this)
+                            .setTitle("登録成功")
+                            .setMessage("保存成功しました")
+                            .setPositiveButton("OK", null)
+                            .show();
+                }
+            }
+        });
+        // **************************************************
+
     }
 
     private void UpdateGUI() {
@@ -94,35 +140,7 @@ public class MainActivity extends AppCompatActivity {
                                     String name;
                                     //入力から名前を取得
                                     name = input.getText().toString();
-
-                                    // **********【問題１】名前とスコアを保存しよう！**********
-                                    //保存するインスタンスを作成
-                                    NCMBObject obj = new NCMBObject("GameScore");
-                                    //値を設定
-                                    obj.put("name", name);
-                                    obj.put("score", score);
-                                    //保存を実施
-                                    obj.saveInBackground(new DoneCallback() {
-                                        @Override
-                                        public void done(NCMBException e) {
-                                            if (e != null) {
-                                                //保存が失敗した場合の処理
-                                                new AlertDialog.Builder(MainActivity.this)
-                                                        .setTitle("登録失敗")
-                                                        .setMessage("エラー :" + e.getMessage())
-                                                        .setPositiveButton("OK", null)
-                                                        .show();
-                                            } else {
-                                                //保存が成功した場合の処理
-                                                new AlertDialog.Builder(MainActivity.this)
-                                                        .setTitle("登録成功")
-                                                        .setMessage("保存成功しました")
-                                                        .setPositiveButton("OK", null)
-                                                        .show();
-                                            }
-                                        }
-                                    });
-                                    // **************************************************
+                                    saveScore(name, score);
                                     //画面を初期化
                                     Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(intent);

@@ -1,9 +1,5 @@
 package mbaas.com.nifty.androidncmbgame;
 
-/**
- * Created by thuydg on 6/29/16.
- */
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -37,10 +33,10 @@ public class RankingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ranking_page);
-        getData();
+        checkRanking();
     }
 
-    protected void getData() {
+    protected void checkRanking() {
 
         // **********【問題２】ランキングを表示しよう！**********
 
