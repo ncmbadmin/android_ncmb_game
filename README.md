@@ -1,4 +1,4 @@
-# 【Swift問題集】『オンラインランキング機能を作ってみよう！「連打ゲーム」』
+# 【Android問題集】『オンラインランキング機能を作ってみよう！「連打ゲーム」』
 
 ![RendaGame](/readme-img/RendaGame.png)
 
