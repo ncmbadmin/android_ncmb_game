@@ -67,7 +67,9 @@
 * `name`を保存するフィールドを「`name`」、`score`を保存するフィールドを「`score`」として保存してください
 
 ### ヒント
-* [ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)のAndroidドキュメントはJavaで書かれていますので、是非ご参考ください。
+
+* [ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)のキュメントのドキュメントページをご活用ください
+ * [データストア（Android）：基本的な使い方](http://mb.cloud.nifty.com/doc/current/datastore/basic_usage_android.html)
 
 ### コーディング後の作業
 問題１のコーディングが完了したら、下記の作業を行います
@@ -96,7 +98,7 @@ new AlertDialog.Builder(MainActivity.this)
             .show();
 ```
 
-__【作業1-2】__シュミレーターで実行、「Start」ボタンを押してゲームを遊びます
+__【作業1-2】__エミュレーターで実行、「Start」ボタンを押してゲームを遊びます
 
 * 名前を入力し、「OK」がクリックされると【問題１】で作成した`saveScore`メソッドが呼ばれ、データが保存されます
 * このとき下記のいずれかのログが出力されます
@@ -121,7 +123,10 @@ __【作業1-2】__シュミレーターで実行、「Start」ボタンを押�
 * 検索データ件数は５件とします
 
 ### ヒント
-* [ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)のAndroidドキュメントはJavaで書かれていますので、ご参考ください。
+
+* [ニフティクラウドmobile backend](http://mb.cloud.nifty.com/)のキュメントのドキュメントページをご活用ください
+ * [データストア（Android）：基本的な使い方](http://mb.cloud.nifty.com/doc/current/datastore/basic_usage_android.html)
+ *  [データストア（Android）：ランキングを作る](http://mb.cloud.nifty.com/doc/current/datastore/ranking_android.html)
 
 ### コーディング後の作業
 問題２のコーディングが完了したら、下記の作業を行います
@@ -142,7 +147,7 @@ Log.e("NCMB", "検索に失敗しました。エラーコード:" + e.getMessage
 Log.i("NCMB", "検索に成功しました。");
 ```
 
-__【作業2-2】__シュミレーターで実行し、「ランキングを見る」ボタンをタップします
+__【作業2-2】__エミュレーターで実行し、「ランキングを見る」ボタンをタップします
 * 画面起動後、`checkRanking`メソッドが呼ばれ、【問題１】で保存されたデータが検索・取得されます
 * このとき下記のいずれかのログが出力されます
 
@@ -158,25 +163,25 @@ __【作業2-3】__検索に成功したら、該当する箇所に以下の処�
 * 検索に成功した場合の処理を行う箇所に追記
 
 ```java
-                    //ListViewオブジェクトの取得
-                    ListView lv = (ListView)findViewById(R.id.lstRanking);
+        //ListViewオブジェクトの取得
+        ListView lv = (ListView)findViewById(R.id.lstRanking);
 
-                    // ループカウンタ
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(RankingActivity.this, android.R.layout.simple_list_item_1);
+        // ループカウンタ
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(RankingActivity.this, android.R.layout.simple_list_item_1);
 
-                    for (int i = 0, n = objects.size(); i < n; i++) {
-                        NCMBObject o = objects.get(i);
-                        Log.i("NCMB", o.getString("name"));
-                        // 処理
-                        String name = o.getString("name");
-                        Integer score = o.getInt("score");
-                        adapter.add(name + " さん : " + score.toString() + " (point)");
-                    }
+        for (int i = 0, n = objects.size(); i < n; i++) {
+            NCMBObject o = objects.get(i);
+            Log.i("NCMB", o.getString("name"));
+            // 処理
+            String name = o.getString("name");
+            Integer score = o.getInt("score");
+            adapter.add(name + " さん : " + score.toString() + " (point)");
+        }
 
-                    lv.setAdapter(adapter);
+        lv.setAdapter(adapter);
 ```
 
-__【作業2-4】__シュミレーターで実行、「ランキングを見る」ボタンを押します
+__【作業2-4】__エミュレーターで実行、「ランキングを見る」ボタンを押します
 
 * 先ほどのスコアが表示されれば完成です！おめでとうございます★
 
