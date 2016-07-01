@@ -22,7 +22,7 @@
 
 ▼問題用プロジェクト▼
 
-[__「連打ゲーム (Taping Game)」__](././archive/master.zip)
+[__「連打ゲーム (Taping Game)」__](https://github.com/ncmbadmin/android_ncmb_game/archive/master.zip)
 
 1. 上記リンクをクリックしてzipファイルをローカルに保存します
 1. zipファイルを解凍して、AndroidStudioを開き,「Open an existing AndroidStudio project」を選択し、解凍したプロジェクトを開きます。
