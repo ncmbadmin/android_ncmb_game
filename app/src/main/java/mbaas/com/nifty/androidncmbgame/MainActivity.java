@@ -87,34 +87,19 @@ public class MainActivity extends AppCompatActivity {
 
         // **********【問題１】名前とスコアを保存しよう！**********
 
-        //保存するインスタンスを作成
-        NCMBObject obj = new NCMBObject("GameScore");
 
-        //値を設定
-        obj.put("name", name);
-        obj.put("score", score);
 
-        //保存を実施
-        obj.saveInBackground(new DoneCallback() {
-            @Override
-            public void done(NCMBException e) {
-                if (e != null) {
-                    //保存が失敗した場合の処理
-                    new AlertDialog.Builder(MainActivity.this)
-                            .setTitle("登録失敗")
-                            .setMessage("エラー :" + e.getMessage())
-                            .setPositiveButton("OK", null)
-                            .show();
-                } else {
-                    //保存が成功した場合の処理
-                    new AlertDialog.Builder(MainActivity.this)
-                            .setTitle("登録成功")
-                            .setMessage("保存成功しました")
-                            .setPositiveButton("OK", null)
-                            .show();
-                }
-            }
-        });
+
+
+
+
+
+
+
+
+
+
+        
         // **************************************************
 
     }

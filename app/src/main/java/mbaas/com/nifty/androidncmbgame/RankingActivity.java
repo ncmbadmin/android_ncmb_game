@@ -40,43 +40,17 @@ public class RankingActivity extends AppCompatActivity {
 
         // **********【問題２】ランキングを表示しよう！**********
 
-        //HighScoreクラスを検索するクエリを作成
-        NCMBQuery<NCMBObject> query = new NCMBQuery<NCMBObject>("GameScore");
 
-        //Scoreフィールドの降順でデータを取得
-        query.addOrderByDescending("score");
 
-        //検索件数を5件に設定
-        query.setLimit(5);
 
-        //データストアでの検索を行う
-        query.findInBackground(new FindCallback<NCMBObject>() {
-            @Override
-            public void done(List<NCMBObject> objects, NCMBException e) {
-                if (e != null) {
-                    //エラー時の処理
-                    Log.e("NCMB", e.getMessage());
-                } else {
-                    //成功時の処理
-                    Log.i("NCMB", "Get successful");
-                    //ListViewオブジェクトの取得
-                    ListView lv = (ListView)findViewById(R.id.lstRanking);
-                    // ループカウンタ
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(RankingActivity.this, android.R.layout.simple_list_item_1);
 
-                    for (int i = 0, n = objects.size(); i < n; i++) {
-                        NCMBObject o = objects.get(i);
-                        Log.i("NCMB", o.getString("name"));
-                        // 処理
-                        String name = o.getString("name");
-                        Integer score = o.getInt("score");
-                        adapter.add(name + " さん : " + score.toString() + " (point)");
-                    }
 
-                    lv.setAdapter(adapter);
-                }
-            }
-        });
+
+
+
+
+
+
 
         // **************************************************
 
