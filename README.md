@@ -1,6 +1,6 @@
 ## 【Android問題集（解答編）】『オンラインランキング機能を作ってみよう！「連打ゲーム」』
 
-本編は[こちら](https://github.com/ncmbadmin/android_ncmb_game)
+本編は[こちら](https://github.com/ncmbadmin/android_ncmb_game/tree/master)
 
 完全版プロジェクト
 
