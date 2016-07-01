@@ -101,15 +101,15 @@ public class MainActivity extends AppCompatActivity {
                 if (e != null) {
                     //保存が失敗した場合の処理
                     new AlertDialog.Builder(MainActivity.this)
-                            .setTitle("登録失敗")
-                            .setMessage("エラー :" + e.getMessage())
+                            .setTitle("保存失敗")
+                            .setMessage("保存に失敗しました。エラーコード :" + e.getMessage())
                             .setPositiveButton("OK", null)
                             .show();
                 } else {
                     //保存が成功した場合の処理
                     new AlertDialog.Builder(MainActivity.this)
-                            .setTitle("登録成功")
-                            .setMessage("保存成功しました")
+                            .setTitle("保存成功")
+                            .setMessage("保存に成功しました。")
                             .setPositiveButton("OK", null)
                             .show();
                 }
