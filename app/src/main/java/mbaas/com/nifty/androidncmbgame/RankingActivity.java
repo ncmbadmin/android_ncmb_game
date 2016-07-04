@@ -55,7 +55,7 @@ public class RankingActivity extends AppCompatActivity {
             public void done(List<NCMBObject> objects, NCMBException e) {
                 if (e != null) {
                     //エラー時の処理
-                    Log.e("NCMB", "検索に失敗しました。エラーコード:" + e.getMessage());
+                    Log.e("NCMB", "検索に失敗しました。エラー:" + e.getMessage());
                 } else {
                     //成功時の処理
                     Log.i("NCMB", "検索に成功しました。");
