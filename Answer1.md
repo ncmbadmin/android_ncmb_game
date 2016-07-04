@@ -19,6 +19,7 @@
 ```java
  // **********【問題１】名前とスコアを保存しよう！**********
 
+
  //保存するインスタンスを作成
  NCMBObject obj = new NCMBObject("GameScore");
 
@@ -32,18 +33,10 @@
      public void done(NCMBException e) {
          if (e != null) {
              //保存が失敗した場合の処理
-             new AlertDialog.Builder(MainActivity.this)
-                     .setTitle("保存失敗")
-                     .setMessage("保存に失敗しました。エラーコード :" + e.getMessage())
-                     .setPositiveButton("OK", null)
-                     .show();
+             Log.e("NCMB", "保存に失敗しました。エラー:" + e.getMessage());
          } else {
              //保存が成功した場合の処理
-             new AlertDialog.Builder(MainActivity.this)
-                     .setTitle("保存成功")
-                     .setMessage("保存に成功しました。")
-                     .setPositiveButton("OK", null)
-                     .show();
+             Log.i("NCMB", "保存に成功しました。");
          }
      }
  });
