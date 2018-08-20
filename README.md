@@ -4,10 +4,10 @@
 
 ## コンテンツ概要
 
-* [ニフクラ mobile backend](http://mb.cloud.nifty.com/)の機能『データストア』を学習するための問題集です
- * [ニフクラ mobile backend](http://mb.cloud.nifty.com/)の利用登録（無料）が必要です。
+* [ニフクラ mobile backend](https://mbaas.nifcloud.com/)の機能『データストア』を学習するための問題集です
+ * [ニフクラ mobile backend](https://mbaas.nifcloud.com/)の利用登録（無料）が必要です。
 * 問題用プロジェクトにはオンラインランキング機能が実装されていない状態の「連打ゲーム」です
- * 既に実装済みの[ニフクラ mobile backend](http://mb.cloud.nifty.com/)を利用するための準備（SDK導入など）方法の詳細は[こちら](http://mb.cloud.nifty.com/doc/current/introduction/quickstart_android.html)をご覧ください。
+ * 既に実装済みの[ニフクラ mobile backend](https://mbaas.nifcloud.com/)を利用するための準備（SDK導入など）方法の詳細は[こちら](https://mbaas.nifcloud.com/doc/current/introduction/quickstart_android.html)をご覧ください。
 
 ## 問題について
 
@@ -42,7 +42,7 @@
 
 ![mBaaS](/readme-img/mBaaS.png)
 
-*  [ニフクラ mobile backend](http://mb.cloud.nifty.com/)にログインしアプリの新規作成を行います
+*  [ニフクラ mobile backend](https://mbaas.nifcloud.com/)にログインしアプリの新規作成を行います
  * アプリ名はわかりやすいものにしましょう。例）「renda」
 * アプリが作成されるとAPIキーが２種類（アプリケーションキーとクライアントキー）発行されます
  * 次で使用します。
@@ -50,7 +50,7 @@
 ![AndroidStudio](/readme-img/icon_androidstudio.png)
 
 * `MainActivity.java`の`onCreate`を編集します
-* 先程[ニフクラ mobile backend](http://mb.cloud.nifty.com/)のダッシュボード上で確認したAPIキーを貼り付けます
+* 先程[ニフクラ mobile backend](https://mbaas.nifcloud.com/)のダッシュボード上で確認したAPIキーを貼り付けます
 
 ![問題0-1](/readme-img/0-1.png)
 
@@ -68,8 +68,8 @@
 
 ### ヒント
 
-* [ニフクラ mobile backend](http://mb.cloud.nifty.com/)のキュメントのドキュメントページをご活用ください
- * [データストア（Android）：基本的な使い方](http://mb.cloud.nifty.com/doc/current/datastore/basic_usage_android.html)
+* [ニフクラ mobile backend](https://mbaas.nifcloud.com/)のキュメントのドキュメントページをご活用ください
+ * [データストア（Android）：基本的な使い方](https://mbaas.nifcloud.com/doc/current/datastore/basic_usage_android.html)
 
 ### コーディング後の作業
 問題１のコーディングが完了したら、下記の作業を行います
@@ -98,7 +98,7 @@ __【作業1-2】__エミュレーターで実行、「Start」ボタンを押�
  * 「`保存に成功しました。`」の場合は保存成功です
  * 「`保存に失敗しました。エラー : ************`」の場合は保存失敗です
 
-※エラーコードが出た場合は[こちら](http://mb.cloud.nifty.com/doc/current/rest/common/error.html#REST%20API%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)で確認できます
+※エラーコードが出た場合は[こちら](https://mbaas.nifcloud.com/doc/current/rest/common/error.html#REST%20API%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)で確認できます
 
 ### 答え合わせ
 
@@ -116,9 +116,9 @@ __【作業1-2】__エミュレーターで実行、「Start」ボタンを押�
 
 ### ヒント
 
-* [ニフクラ mobile backend](http://mb.cloud.nifty.com/)のキュメントのドキュメントページをご活用ください
- * [データストア（Android）：基本的な使い方](http://mb.cloud.nifty.com/doc/current/datastore/basic_usage_android.html)
- *  [データストア（Android）：ランキングを作る](http://mb.cloud.nifty.com/doc/current/datastore/ranking_android.html)
+* [ニフクラ mobile backend](https://mbaas.nifcloud.com/)のキュメントのドキュメントページをご活用ください
+ * [データストア（Android）：基本的な使い方](https://mbaas.nifcloud.com/doc/current/datastore/basic_usage_android.html)
+ *  [データストア（Android）：ランキングを作る](https://mbaas.nifcloud.com/doc/current/datastore/ranking_android.html)
 
 ### コーディング後の作業
 問題２のコーディングが完了したら、下記の作業を行います
@@ -146,7 +146,7 @@ __【作業2-2】__エミュレーターで実行し、「ランキングを見�
  * 「`検索に成功しました。`」が表示された場合は検索成功です
  * 「`検索に失敗しました。エラー:************`」が表示された場合は検索失敗です
 
-※エラーコードが出た場合は[こちら](http://mb.cloud.nifty.com/doc/current/rest/common/error.html#REST%20API%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)で確認できます
+※エラーコードが出た場合は[こちら](https://mbaas.nifcloud.com/doc/current/rest/common/error.html#REST%20API%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%82%B3%E3%83%BC%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)で確認できます
 
 * 検索の状態（成功・失敗）に関係なく、「SHOW RANKING」ボタンをタップしても、まだランキングは表示されません
 
