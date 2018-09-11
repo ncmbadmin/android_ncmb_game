@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -15,7 +16,11 @@ import java.util.TimerTask;
 
 import android.os.Handler;
 
+import com.nifcloud.mbaas.core.DoneCallback;
 import com.nifcloud.mbaas.core.NCMB;
+import com.nifcloud.mbaas.core.NCMBException;
+import com.nifcloud.mbaas.core.NCMBObject;
+
 
 public class MainActivity extends AppCompatActivity {
     //カウントタイム設定
@@ -80,19 +85,31 @@ public class MainActivity extends AppCompatActivity {
 
         // **********【問題１】名前とスコアを保存しよう！**********
 
+        //保存するインスタンスを作成
+        NCMBObject obj = new NCMBObject("GameScore");
+
+        //値を設定
+        try {
+            obj.put("name", name);
+            obj.put("score", score);
+        } catch (NCMBException e) {
+            e.printStackTrace();
+        }
 
 
-
-
-
-
-
-
-
-
-
-
-        
+        //保存を実施
+        obj.saveInBackground(new DoneCallback() {
+            @Override
+            public void done(NCMBException e) {
+                if (e != null) {
+                    //保存が失敗した場合の処理
+                    Log.e("NCMB", "保存に失敗しました。エラー:" + e.getMessage());
+                } else {
+                    //保存が成功した場合の処理
+                    Log.i("NCMB", "保存に成功しました。");
+                }
+            }
+        });
         // **************************************************
 
     }
