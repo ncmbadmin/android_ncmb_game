@@ -1,28 +1,21 @@
-package mbaas.com.nifty.androidncmbgame;
+package mbaas.com.nifcloud.androidncmbgame;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 import android.os.Handler;
 
-import com.nifty.cloud.mb.core.DoneCallback;
-import com.nifty.cloud.mb.core.NCMB;
-import com.nifty.cloud.mb.core.NCMBException;
-import com.nifty.cloud.mb.core.NCMBObject;
+import com.nifcloud.mbaas.core.NCMB;
 
 public class MainActivity extends AppCompatActivity {
     //カウントタイム設定

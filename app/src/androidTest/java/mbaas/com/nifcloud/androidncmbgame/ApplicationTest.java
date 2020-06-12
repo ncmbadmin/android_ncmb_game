@@ -1,4 +1,4 @@
-package mbaas.com.nifty.androidncmbgame;
+package mbaas.com.nifcloud.androidncmbgame;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
