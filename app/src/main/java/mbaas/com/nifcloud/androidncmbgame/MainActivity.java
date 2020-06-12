@@ -1,6 +1,5 @@
-package mbaas.com.nifty.androidncmbgame;
+package mbaas.com.nifcloud.androidncmbgame;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,17 +11,16 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
 import android.os.Handler;
 
-import com.nifty.cloud.mb.core.DoneCallback;
-import com.nifty.cloud.mb.core.NCMB;
-import com.nifty.cloud.mb.core.NCMBException;
-import com.nifty.cloud.mb.core.NCMBObject;
+import com.nifcloud.mbaas.core.DoneCallback;
+import com.nifcloud.mbaas.core.NCMB;
+import com.nifcloud.mbaas.core.NCMBException;
+import com.nifcloud.mbaas.core.NCMBObject;
+
 
 public class MainActivity extends AppCompatActivity {
     //カウントタイム設定
@@ -91,8 +89,13 @@ public class MainActivity extends AppCompatActivity {
         NCMBObject obj = new NCMBObject("GameScore");
 
         //値を設定
-        obj.put("name", name);
-        obj.put("score", score);
+        try {
+            obj.put("name", name);
+            obj.put("score", score);
+        } catch (NCMBException e) {
+            e.printStackTrace();
+        }
+
 
         //保存を実施
         obj.saveInBackground(new DoneCallback() {
