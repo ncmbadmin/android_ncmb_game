@@ -6,7 +6,6 @@ orbs:
 jobs:
   build:
     executor: android/android
-
     steps:
       - checkout
       - run:
@@ -14,6 +13,7 @@ jobs:
           command:
             ./gradlew app:assembleDebug
             ./gradlew app:assembleDebugAndroidTest
+
   device_farm:
     docker:
       - image: circleci/android:api-28-alpha
@@ -23,5 +23,5 @@ jobs:
       - checkout
       - run:
         name: AWS DeviceFarm
-        command: |
+        command:
           ./gradlew app:devicefarmUpload
