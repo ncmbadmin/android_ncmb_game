@@ -1,7 +1,6 @@
 version: 2
 
 jobs:
-
   build:
     working_directory: ~/code
     docker:
@@ -26,7 +25,6 @@ jobs:
           destination: reports
       - store_test_results:
           path: app/build/test-results
-
   device_farm:
     docker:
       - image: circleci/android:api-28-alpha
