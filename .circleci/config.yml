@@ -1,20 +1,27 @@
-general:
-  branches:
-    only:
-      - master
-machine:
-  java:
-    version: openjdk7
-  environment:
-    ANDROID_HOME: /usr/local/android-sdk-linux
-dependencies:
-  override:
-    - echo y | android update sdk --no-ui --filter "android-23,build-tools-23.0.1"
-test:
-  override:
-    - echo "Nothing to do here"
-deployment:
-  master:
-    branch: master
-    commands:
-      - ./gradlew assembleDebug
+version: 2.1
+
+orbs:
+ android: circleci/android@0.2.0
+
+jobs:
+  build:
+    executor: android/android
+
+    steps:
+      - checkout
+      - run:
+          name: Build debug apk and release apk
+          command:
+            ./gradlew app:assembleDebug
+            ./gradlew app:assembleDebugAndroidTest
+  device_farm:
+    docker:
+      - image: circleci/android:api-28-alpha
+    steps:
+      - attach_workspace:
+        at: .
+      - checkout
+      - run:
+        name: AWS DeviceFarm
+        command: |
+          ./gradlew app:devicefarmUpload
