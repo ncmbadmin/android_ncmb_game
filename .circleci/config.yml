@@ -18,8 +18,7 @@ jobs:
     docker:
       - image: circleci/android:api-28-alpha
     steps:
-      - attach_workspace:
-        at: .
+
       - checkout
       - run:
         name: AWS DeviceFarm
