@@ -12,7 +12,6 @@ devicefarm {
     }
 }
 
-
 android {
     compileSdkVersion 28
 
@@ -30,7 +29,6 @@ android {
         }
     }
 }
-
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
