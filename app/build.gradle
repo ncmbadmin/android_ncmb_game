@@ -12,6 +12,7 @@ devicefarm {
     }
 }
 
+
 android {
     compileSdkVersion 28
 
