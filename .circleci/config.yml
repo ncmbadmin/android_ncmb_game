@@ -10,15 +10,9 @@ jobs:
       JVM_OPTS: -Xmx3200m
     steps:
       - checkout
-      - restore_cache:
-        key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
       - run:
           name: Download dependencies
           command: ./gradlew androidDependencies
-      - save_cache:
-          paths:
-            - ~/.gradlew
-          key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
       - run:
           name: Run Tests
           command: ./gradlew lint test
@@ -37,8 +31,6 @@ jobs:
     docker:
       - image: circleci/android:api-28-alpha
     steps:
-      - attach_workspace:
-        at: .
       - checkout
       - run:
         name: AWS DeviceFarm
