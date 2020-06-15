@@ -13,12 +13,12 @@ devicefarm {
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     defaultConfig {
         applicationId "mbaas.com.nifcloud.androidncmbgame"
         minSdkVersion 15
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
     }
