@@ -19,7 +19,7 @@ jobs:
           paths:
             - ~/.gradlew
           key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
-      -run:
+      - run:
           name: Run Tests
           command: ./gradlew lint test
       - run:
