@@ -8,17 +8,32 @@ jobs:
     executor: android/android
     steps:
       - checkout
+      - restore_cache:
+        key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
+      - run:
+          name: Download dependencies
+          command: ./gradlew androidDependencies
+      - save_cache:
+          paths:
+            - ~/.gradlew
+          key: jars-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
+      -run:
+          name: Run Tests
+          command: ./gradlew lint test
       - run:
           name: Build debug apk and release apk
-          command:
-            ./gradlew app:assembleDebug
-            ./gradlew app:assembleDebugAndroidTest
+          command: |
+            ./gradlew :app:assembleDebug
+            ./gradlew :app:assembleDebugAndroidTest
+      - store_artifacts
+          path: app/build/reports
+          destination: reports
+      - store_test_results:
+          path: app/build/test-results
 
   device_farm:
-    docker:
-      - image: circleci/android:api-28-alpha
     steps:
+      - checkout
       - run:
         name: AWS DeviceFarm
-        command:
-          ./gradlew app:devicefarmUpload
+        command: ./gradlew :app:devicefarmUpload
