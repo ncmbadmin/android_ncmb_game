@@ -10,6 +10,8 @@ devicefarm {
        accessKey envAccessKey
        secretKey envSecretKey
     }
+    // Fuzz
+    fuzz { }
 }
 
 android {
